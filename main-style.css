@@ -1,10 +1,10 @@
 
-a {
+.links{
+    border-style: solid;
+    border-width: 2px;
+    border-color: cornflowerblue;
     color: orange;
     font-weight: 500;
-    padding: 30px; 
-}
-
-a#links {
-    color: cornflowerblue;
+    padding: 10px; 
+    text-decoration: none;
 }
