@@ -1,0 +1,58 @@
+    .prin
+    {
+        padding: 40px;
+        font-weight: 300;
+        border: cornflowerblue;
+        border-width: 2px;
+        border-style: dashed;
+        text-decoration: none;
+        color: black;
+    }
+
+    .btn
+    {
+        background-color : white;
+        border-style:solid;
+        border-width: 2px;
+        border-color:DeepSkyBlue;
+        box-shadow: none;
+        height: 36px;
+        width: fit-content;
+        border-radius: 4px;
+    }
+
+    #submit_btn
+    {
+        color:white;
+        background-color: deepskyblue;
+    }
+
+    #myText
+    {
+        height: 30px;
+        width: 260px;
+    }
+
+    .space
+    {
+        padding: 20px;
+    }
+
+    h3
+    {
+        margin: 0px; 
+        padding-bottom: 10px;
+    }
+
+    .btn_clr
+    {
+        background-color : black;
+        box-shadow: none;
+        border-style: solid;
+        border-color: white;
+        border-width: 2px;
+        height: 36px;
+        width: 36px;
+        border-radius: 4px;
+        color: white;
+    }

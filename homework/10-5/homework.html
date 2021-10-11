@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My js homework</title>
+        <script src="homework.js"></script>
+        <link rel="stylesheet" href="homework.css">
+    </head>
+
+    </head>
+
+    <body>
+        <h1 class="prin" id="prin" style="height: 40px; margin: 10px;"> your text</h1>
+        <div class="space" >
+            <input type="text" id="myText" value="" placeholder=" enter text">
+            <button class="btn" id="submit_btn"onclick="myFunction()">Try it</button>
+        </div>
+
+        <div class="space">
+            <h3>Text style</h3>
+            <button class="btn" id="Bold" onclick="textStyle()">Bold</button>
+            <button class="btn" id="Italic" onclick="textStyle()">Italic</button>
+            <button class="btn" id="Underline" onclick="textStyle()">Underline</button>
+            <button class="btn" id="Strikethrough" onclick="textStyle()">Strikethrough</button>
+            <button class="btn" id="clear" onclick="textStyle()">clear</button>
+        </div>
+
+        <div class="space">
+            <h3 id="font_size">Text size - 32px</h3>
+            <button class="btn" id="Inc" onclick="fontSize()">Inc +</button>
+            <button class="btn" id="Dec" onclick="fontSize()">Dec -</button>
+            <button class="btn" id="Reset" onclick="fontSize()">Reset</button>
+        </div>
+
+        <div class="space">
+            <h3>Text alignments</h3>
+            <button class="btn" id="Left" onclick="textAlign()">Left align</button>
+            <button class="btn" id="Center" onclick="textAlign()">Center align </button>
+            <button class="btn" id="Right" onclick="textAlign()">Right align</button>
+        </div>
+
+        <div class="space">
+            <h3 id="txt_clr">Text color</h3>
+            <button class="btn_clr" id="B" style="background-color: blue;" onclick="textClr()">B</button>
+            <button class="btn_clr" id="G" style="background-color: green;" onclick="textClr()">G</button>
+            <button class="btn_clr" id="R" style="background-color: red;" onclick="textClr()">R</button>
+            <button class="btn_clr" id="Bk" style="background-color: black;" onclick="textClr()">Bk</button>
+            <button class="btn_clr" id="Y" style="background-color: yellow; color: black;" onclick="textClr()">Y</button>
+            <button class="btn_clr" id="O" style="background-color: orange; color: black;" onclick="textClr()">O</button>
+            <button class="btn_clr" id="W" style="background-color: whitesmoke; color: black;" onclick="textClr()">W</button>
+            <button class="btn" id="resetClr" onclick="textClr()">Reset</button>
+        </div>
+
+        <div class="space">
+            <h3 id="bg_clr">Background color</h3>
+            <button class="btn_clr" id="B" style="background-color: blue;" onclick="bgClr()">B</button>
+            <button class="btn_clr" id="G" style="background-color: green;" onclick="bgClr()">G</button>
+            <button class="btn_clr" id="R" style="background-color: red;" onclick="bgClr()">R</button>
+            <button class="btn_clr" id="Bk" style="background-color: black;" onclick="bgClr()">Bk</button>
+            <button class="btn_clr" id="Y" style="background-color: yellow; color: black;" onclick="bgClr()">Y</button>
+            <button class="btn_clr" id="O" style="background-color: orange; color: black;" onclick="bgClr()">O</button>
+            <button class="btn_clr" id="W" style="background-color: whitesmoke; color: black;" onclick="bgClr()">W</button>
+            <button class="btn" id="resetClr" onclick="bgClr()">Reset</button>
+        </div>
+
+    </body>
+</html>
