@@ -21,6 +21,12 @@
         border-radius: 4px;
     }
 
+    .btn:hover
+    {
+        background-color : DeepSkyBlue;
+        color:white;
+    }
+
     #submit_btn
     {
         color:white;
