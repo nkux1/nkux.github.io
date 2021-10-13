@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title> viz tech class</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .style1{
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: blueviolet;
+        }
+
+        .style2
+        {
+            font-size: 39px;
+            font-weight: normal;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+            color:rgb(127, 255, 212);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>D3 JS</h1>
+
+    <p onclick="drawCircles(data1)"> data 1 </p>
+
+    <p onclick="drawCircles(data2)"> data 2 </p>
+
+    <!-- <p id="txt" class="style1"> random text </p>
+    <p id="txt" class="style1"> random text </p>
+    <p id="txt" class="style1"> random text </p> -->
+
+     <svg id="circle-viz">
+        <!--<circle class="cir" cx="100px" cy="100px" r="40px" fill="green" stroke="black" stroke-width="2px"/>
+        <circle class="cir" cx="150px" cy="100px" r="40px" fill="green" stroke="black" stroke-width="2px"/>
+        <circle class="cir" cx="200px" cy="100px" r="40px" fill="green" stroke="black" stroke-width="2px"/>-->
+    </svg> 
+
+    <script>
+        var txt = d3.selectAll(".style1");
+        var cirs = d3.selectAll(".cir");
+        
+        var data1 =
+        [
+            {
+                country: "usa",
+                value: "23",
+                color: "red"
+            },
+            {
+                country: "ind",
+                value: "35",
+                color: "green"
+            }
+        ];
+
+        var data2 =
+        [
+            {
+                country: "usa",
+                value: "43",
+                color: "red"
+            },
+            {
+                country: "ind",
+                value: "50",
+                color: "green"
+            },
+            {
+                country: "chn",
+                value: "30",
+                color: "black"
+            }
+        ];
+
+        function drawCircles(dataArray)
+        {
+            var circles = d3.select("#circle-viz").selectAll("circle")
+                            .data(dataArray,function(d)
+                                                {
+                                                    return d.country;
+                                                });
+
+            //creating circles 
+            circles.enter().append("circle")
+                            .attr("fill",function(d)
+                                            {
+                                                return d.color;
+                                            })
+                            .attr("cy","100")
+                            .attr("cx",cirpos)
+                            .attr("opacity","0.5")
+                            .attr("r","0")
+                            .transition().duration(1000)
+                                .attr("r",function(d)
+                                            {
+                                                return d.value;
+                                            });  
+
+            //circles update 
+            circles.transition().duration(1000)
+                    .attr("cx",cirpos)
+                    .attr("r",function(d)
+                                {
+                                    return d.value;
+                                });  
+
+            // circles exit
+            circles.exit().transition().duration(1000)
+                    .attr("r",0).remove(); 
+
+        }
+
+        function cirpos()
+        {
+            return Math.random() * 150 + 30;
+        }
+
+
+        // function fun()
+        // {
+        //     txt.attr("class","style2").style("color","red").style("font-size",siz);
+        //     cirs.attr("cx",cirpos).attr("fill",circlr);
+        // }
+        // function siz()
+        // {
+        //    return Math.random() * 50 +"px";
+        // }
+        // function circlr()
+        // {
+        //     return "rgb("+Math.random()*255+","+Math.random()*255+","+Math.random()*255+")";
+        // }
+
+
+
+    </script>
+</body>
+</html>
