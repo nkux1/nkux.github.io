@@ -210,13 +210,9 @@
     function drawRects(output)
     {
         // let maxPpg = getMax(output, "ppg")
-
         // console.log(maxPpg.value);
-
         // yScale.domain([0,maxPpg.value+10]);
-
         // chart.console.call(d3.axisLeft(yScale));
-
         // selectElement = document.querySelector('#cars');          
         // output = selectElement.value;
 
@@ -259,6 +255,8 @@
 
         bars.exit()
             .transition().duration(1000)
+            .attr('x',function(d) { return margin + xScale(d.year); })
+            .attr('y', function(d) { return margin + yScale(d.value); })
             .attr("height","0");
 
 
