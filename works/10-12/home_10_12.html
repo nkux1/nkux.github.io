@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title> viz tech class</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="home_10_12.css">
+
+</head>
+<body>
+    <h1>D3 JS</h1>
+    <div>
+        <!-- <form action = "" onsubmit="drawRects(value)" > 
+            <label>Choose a car:</label>
+            <select name="cars" id="cars" onChange="drawRects(value)">
+              <option value="null" selected ="selected" >select data</option>
+              <option value="data1">Saab</option>
+              <option value="data2">Opel</option>
+              <option value="audi">Audi</option>
+            </select>
+            <input type="submit" value="Submit" >
+          </form> -->
+    </div>
+
+    <div class="tabs">
+        <button class="btn" id="tab_1" onclick="drawRects(population)">Population</button>
+        <button class="btn" id="tab_2" onclick="drawRects(area)">Area</button>
+        <button class="btn" id="tab_3" onclick="drawRects(density)">Population Density</button>
+    </div>
+
+   
+    <div>   
+        <svg id="circle-viz" height= 800 width= 1000> </svg> 
+    </div>
+    
+
+    <script>
+        
+        var population =
+        [
+            {
+                year: "India",
+                value: "13.38",
+                color: "#00CED1"
+            },
+            {
+                year: "USA",
+                value: "3.28",
+                color: "#87CEEB"
+            },
+            {
+                year: "Canada",
+                value: "0.38",
+                color: "#DEB887"
+            },
+            {
+                year: "China",
+                value: "14.0",
+                color: "#FFE4E1"
+            },
+            {
+                year: "Japan",
+                value: "1.25",
+                color: "#C0C0C0"
+            },
+            {
+                year: "Russia",
+                value: "1.44",
+                color: "#F08080"
+            },
+            {
+                year: "Mexico",
+                value: "1.28",
+                color: "#FFA07A"
+            }
+        ];
+
+        var area =
+        [
+            {
+                year: "India",
+                value: "1.27",
+                color: "#00CED1"
+            },
+            {
+                year: "USA",
+                value: "3.97",
+                color: "#87CEEB"
+            },
+            {
+                year: "Canada",
+                value: "3.80",
+                color: "#DEB887"
+            },
+            {
+                year: "China",
+                value: "3.07",
+                color: "#FFE4E1"
+            },
+            {
+                year: "Japan",
+                value: "0.15",
+                color: "#C0C0C0"
+            },
+            {
+                year: "Russia",
+                value: "6.64",
+                color: "#F08080"
+            },
+            {
+                year: "Mexico",
+                value: "0.75",
+                color: "#FFA07A"
+            }
+        ];
+
+        var density =
+        [
+        {
+                year: "India",
+                value: "4.64",
+                color: "#00CED1"
+            },
+            {
+                year: "USA",
+                value: "0.36",
+                color: "#87CEEB"
+            },
+            {
+                year: "Canada",
+                value: "0.04",
+                color: "#DEB887"
+            },
+            {
+                year: "China",
+                value: "1.53",
+                color: "#FFE4E1"
+            },
+            {
+                year: "Japan",
+                value: "3.47",
+                color: "#C0C0C0"
+            },
+            {
+                year: "Russia",
+                value: "0.09",
+                color: "#F08080"
+            },
+            {
+                year: "Mexico",
+                value: "0.66",
+                color: "#FFA07A"
+            }
+        ];
+    
+
+    var margin = 40;
+    var width = 1000 - margin;
+    var height = 700 - margin;
+
+    var svg = d3.select('svg');
+
+    var chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+
+    var yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([0, 15]);
+
+    chart.append('g')
+         .call(d3.axisLeft(yScale));
+            
+    var xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(population.map(function(d) { return d.year; }))
+        .padding(0.4);
+
+    chart.append('g')
+         .attr('transform', `translate(0, ${height})`)
+         .call(d3.axisBottom(xScale));
+
+    svg.append('text')
+        .attr('class', 'label')
+        .attr('x', width / 2 + margin)
+        .attr('y', height + margin * 2)
+        .attr('text-anchor', 'middle')
+        .text('Countries')
+        .attr("id","bottomtext");
+
+    svg.append('text')
+        .attr('class', 'label')
+        .attr('x', -(height / 2) - margin)
+        .attr('y', margin / 2.4)
+        .attr('transform', 'rotate(-90)')
+        .attr('text-anchor', 'middle')
+        .text('Population (in 100 millions)')
+        .attr('id',"lefttext");
+    
+
+    // function getMax(arr, prop) {
+        
+    //     var max;
+    //     for (var i=0 ; i<arr.length ; i++) {
+    //         if (max == null || parseInt(arr[i][prop]) > parseInt(max[prop]))
+    //         max = arr[i];
+    //     }
+    //     return max;
+    // }
+    
+
+    function drawRects(output)
+    {
+        // let maxPpg = getMax(output, "ppg")
+
+        // console.log(maxPpg.value);
+
+        // yScale.domain([0,maxPpg.value+10]);
+
+        // chart.console.call(d3.axisLeft(yScale));
+
+        // selectElement = document.querySelector('#cars');          
+        // output = selectElement.value;
+
+        if(output[0].value == "13.38" )
+        {
+            d3.selectAll(".btn-act").attr("class","btn");
+            document.getElementById("tab_1").className = "btn-act";
+            document.getElementById("lefttext").textContent = "Population (in 100 millions)";
+        }
+        else if(output[0].value == "1.27" )
+        {   
+            d3.selectAll(".btn-act").attr("class","btn");
+            document.getElementById("tab_2").className = "btn-act";
+            document.getElementById("lefttext").textContent = "Area (in 100 mi sq)";        
+        }
+        else if(output[0].value == "4.64")
+        {
+            d3.selectAll(".btn-act").attr("class","btn");
+            document.getElementById("tab_3").className = "btn-act";
+            document.getElementById("lefttext").textContent = "Density (in 100 p/km-sq)";
+        }
+
+        var bars = d3.select("#circle-viz").selectAll("rect").data(output);
+
+        bars.enter()
+            .append('rect')
+            .attr('class', 'bar')
+            .attr('x',function(d) { return margin + xScale(d.year); })
+            .attr('y', function(d) { return margin + yScale(d.value); })
+            .attr("height","0")
+            .transition().duration(1000)
+            .attr('height', function(d) { return height - yScale(d.value); })
+            .attr('width', xScale.bandwidth())
+            .attr('fill', function (d){ return d.color}); 
+
+        bars.transition().duration(1000)
+            .attr('x',function(d) { return margin + xScale(d.year); })
+            .attr('y', function(d) { return margin + yScale(d.value); })
+            .attr('height', function(d) { return height - yScale(d.value); });
+
+        bars.exit()
+            .transition().duration(1000)
+            .attr("height","0");
+
+
+    
+    }
+    </script>
+</body>
+</html>

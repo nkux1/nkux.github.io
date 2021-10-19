@@ -2,8 +2,8 @@
 .links{
     border-style: solid;
     border-width: 2px;
-    border-color: cornflowerblue;
-    color: cornflowerblue;
+    border-color: LightBlue;
+    color: LightBlue;
     font-weight: 500;
     padding: 10px; 
     text-decoration: none;
@@ -18,4 +18,20 @@
     font-weight: 500;
     padding: 10px; 
     text-decoration: none;
+}
+
+.links-act
+{
+    border-style: solid;
+    border-width: 2px;
+    border-color: DodgerBlue;
+    color: DodgerBlue;
+    font-weight: 500;
+    padding: 10px; 
+    text-decoration: none;
+}
+
+.links-act:hover{
+    background-color: cornflowerblue;
+    color: white;
 }
