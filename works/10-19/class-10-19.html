@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title> viz tech class</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <h1>file data loaded in consol</h1>
+
+    <script>
+        //csv data
+        d3.csv("data.csv",function(error, data) {
+            if(error)
+            {
+                console.log("csv data error");
+            }
+            else
+            {
+
+                //changing value string to number
+                data.forEach(function(row) 
+                                {
+                                    row.value = parseFloat(row.value);
+                                });
+                console.log("csv data");
+                console.log(data);
+
+                // filter data
+                var val = 121;
+                var filtrData = data.filter(function(d)
+                                                {
+                                                    return d.value == val;
+                                                });
+
+                console.log("filtered data", filtrData[0].country);
+
+                // min value 
+                var minVal = d3.min(data,function(row)
+                                            {
+                                                return row["value"];
+                                            });
+
+                console.log("min val", minVal);
+
+                // nest values
+                var groupedData = d3.nest().key(function(d){
+                    return d.side;
+                })
+                .entries(data)
+
+                console.log("grpdata",groupedData);
+
+
+                var nameMapping = {
+                    usa: "USA",
+                    india : "IND",
+                    antartica:"ATR",
+                    mexico: "MXN",
+                    aus: "AUS",
+                    china:"CHN",
+                    canada: "CAN",
+                    japan: "JPN"
+                };
+
+                data.forEach(function(row)
+                {
+                    row.shortName = nameMapping[row.country];
+                });
+
+                console.log("updated data",data);
+            }
+        });
+
+
+        //json data
+        d3.json("data.json",function(error, jsondata) {
+            if(error)
+            {
+                console.log(" json data error");
+            }
+            else
+            {
+                console.log(jsondata);
+                
+            }
+        });
+
+
+        //text data
+        d3.text("data.txt",function(error, data) {
+            if(error)
+            {
+                console.log(" text data error");
+            }
+            else 
+            {
+                console.log(data);
+            }
+        });
+
+
+        // json url
+        var url = "https://datausa.io/api/data?measures=Population&year=2018";
+
+        d3.json(url,function(urldata)
+        {
+            console.log("url data");
+            console.log(urldata);
+        });    
+
+    </script>
+
+</body>
+</html>
