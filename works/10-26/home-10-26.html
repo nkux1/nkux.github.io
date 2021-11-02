@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title> viz tech class</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <h1>Players data loaded in consol</h1>
+
+    <script>
+        //csv data
+        d3.csv("players_data.csv",function(error, data) 
+        {
+            if(error)
+            {
+                console.log("csv data error");
+            }
+            else
+            {
+                console.log("csv data:");
+                console.log(data);
+            }
+        
+        });
+
+    </script>
+
+</body>
+</html>
