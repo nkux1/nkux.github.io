@@ -7,7 +7,8 @@
     font-weight: 500;
     padding: 10px; 
     text-decoration: none;
-    margin: 20px;
+    background-color: white;
+    margin-right: 20px;
     width: 200px;
 }
 
@@ -31,6 +32,8 @@
     font-weight: 500;
     padding: 10px; 
     text-decoration: none;
+    background-color: white;
+    width: 200px;
 }
 
 .links-act:hover{
@@ -40,5 +43,4 @@
 
 .rows{
     margin: 30px;
-    margin-top: 40px;
 }
