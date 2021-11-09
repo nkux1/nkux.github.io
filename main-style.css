@@ -7,6 +7,7 @@
     font-weight: 500;
     padding: 10px; 
     text-decoration: none;
+    margin: 20px;
 }
 
 .links:hover{
@@ -34,4 +35,9 @@
 .links-act:hover{
     background-color: cornflowerblue;
     color: white;
+}
+
+.rows{
+    margin: 30px;
+    margin-top: 40px;
 }

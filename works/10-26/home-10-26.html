@@ -17,10 +17,13 @@
             }
             else
             {
+                data.forEach(function(row) 
+                            {
+                                row.value = parseFloat(row.value);
+                            });
                 console.log("csv data:");
                 console.log(data);
             }
-        
         });
 
     </script>
