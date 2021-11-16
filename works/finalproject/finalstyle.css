@@ -288,6 +288,14 @@ body{
     width: 300px;
 }
 
+.each_nation:hover
+{
+    color: #fff;
+    background-color: #476ADB;
+    box-shadow: 0px 3px 4px 0px rgb(36 50 66 / 12%);
+    cursor: pointer;
+}
+
 .nations_list
 {
     display: flex;
