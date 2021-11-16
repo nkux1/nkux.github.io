@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background: #fff;
+  margin: 0px;
+  padding: 0px;
+}
+
+::selection{
+  color: #fff;
+  background: #664AFF;
+}
+
+
+.wrapper{
+  max-width: 100%;
+  margin: 30px 20px;
+}
+
+.wrapper .search-input{
+  background: #fff;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 4px 8px 0px rgb(36 50 66 / 10%);
+}
+
+.search-input input{
+  height: 55px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  box-shadow: 0px 4px 8px 0px rgb(36 50 66 / 10%);
+}
+
+.search-input.active input{
+  border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box{
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.search-input.active .autocom-box{
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+  border-color: blueviolet;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.autocom-box li{
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 4px;
+}
+
+.search-input.active .autocom-box li{
+  display: block;
+}
+.autocom-box li:hover{
+  background: #efefef;
+}
+
+.search-input .icon{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #644bff;
+  border-radius: 5px;
+  border-width: 5;
+}
+
+
+
+#banner
+{
+    background-color: #000;
+    background-image: url(./fifa21.jpg);
+    padding: 20vh 20px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 260px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #476ADB; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    border-radius: 0px 16px 16px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    width: 240px;
+    color: #fafafa;
+    display: block;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 18px;
+    border-color: #476ADB;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #fff;
+    background-color: #3A56B2;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 18px;
+    border-color: #476ADB;
+
+  }
+
+  .act
+  {
+    color: #fff;
+    background-color: #3A56B2;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 18px;
+    border-color: #476ADB;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 260px; /* Same as the width of the sidebar */
+    padding: 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+
+.mainCards
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mainCards article
+{
+    padding: 40px;
+    border-radius: 6px;
+    border-width: 2px;
+    border-style: solid;
+    border-color:#f5f5f5;
+    background-color: white;
+    margin: 20px;
+
+}
+
+.mainCards article:hover
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color:#3A56B2;
+    background-color: white;
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 20%);
+}
+
+.mainCards article h2:hover
+{
+    color: #3A56B2;
+}
+
+.player_profile
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card_profile
+{
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+    width: 50%;
+    margin: 20px;
+    padding: 22px;
+    border-radius: 10px;
+}
+
+.card_profile img
+{
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+}
+
+.card_stats
+{
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+    background-color: white;
+    padding: 22px;
+    border-radius: 10px;
+    margin: 20px; 
+}
+
+.compare
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.bars_bg
+{
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+    background-color: white;
+    margin: 20px;
+    width: 34%;
+    border-radius: 10px;
+    padding: 22px;
+
+}
+
+
+.center_titles
+{
+    background-color: white;
+    margin: 20px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center_titles p
+{
+    padding-top: 12px;
+}
+
+
+
+
+.each_nation
+{
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 22px;
+    width: 300px;
+}
+
+.nations_list
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.each_club
+{
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 22px;
+    width: 300px;
+}
+
+
+.each_club:hover
+{
+    color: #fff;
+    background-color: #476ADB;
+    box-shadow: 0px 3px 4px 0px rgb(36 50 66 / 12%);
+    cursor: pointer;
+}
+
+
+.each_player
+{
+    box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 22px;
+    width: 240px;
+    height: 320px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>FIFA 2021 players data </title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="./finalstyle.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <a href="./final.html">Home</a>
+        <a href="./players.html">Players data</a>
+        <a href="./clubs.html">Clubs data</a>
+        <a href="./nations.html">Nations data</a>
+    </div>
+    
+    <div class="main">
+        <div id="banner">
+            <h1>FIFA 2021 Players</h1>
+            <p>
+                Are big cats better than small cats, or just
+                a nuisance? The results may surprise you.
+            </p>
+        </div>
+
+        <div class="wrapper">
+            <div class="search-input">
+                <div class="icon"><i class="ri-search-2-line"></i></div>
+                <a href="" target="_blank" hidden></a>
+                <input type="text" placeholder="Search for clubs">
+                <div class="autocom-box">
+                    <!-- here list are inserted from javascript -->
+                </div>
+                <div class="icon"><i class="ri-search-2-line"></i></div>
+            </div>
+        </div>
+
+        <div class="nations_list">
+            <div class="each_player">
+                <img src="https://cdn.sofifa.net/players/164/994/22_360.png" style="width: 80px;">
+                <h2> Player name</h2>
+                <p> jersey num: </p>
+            </div>
+        </div>
+        
+        
+
+
+    </div>
+
+
+    <!-- javascipts   -->
+    <script src="./script.js"></script>
+    <script src="./suggest.js"></script>
+</body>
+</html>

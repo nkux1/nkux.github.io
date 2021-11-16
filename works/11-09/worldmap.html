@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title> world map class</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+</head>
+<body>
+    <h1>world map</h1>
+    
+    <svg id="viz">
+        <rect id="ocean" fill="cornflowerblue" />
+        <g id="map"></g>
+    </svg>
+
+    <script>
+        //set up width of the chart
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        //selecting svg element
+        var svg = d3.select("#viz")
+                    .attr("width", width)
+                    .attr("height", height);
+
+        var map = svg.select("#map");
+
+        //loading json file
+        d3.json("world-alpha3.json", function(error, world) {
+            
+            console.log(world);
+
+            //converting topojson to geojson
+            var geoJSON = topojson.feature(world, world.objects.countries);
+            console.log("geo",geoJSON);
+            
+            //filter for map
+            geoJSON.features = geoJSON.features.filter(function(d) {
+                                                            return d.id !== "ATA";
+                                                        });
+            
+            //setting scale - W&H of the chart
+            var proj = d3.geoMercator()
+                        .fitSize([width, height], geoJSON);
+        
+            var path = d3.geoPath()
+                        .projection(proj);
+            
+            //assigning values
+            var countries = map.selectAll("path")
+                                .data(geoJSON.features);
+
+            countries.enter()
+                    .append("path")
+                    .attr("d", path)
+                    .attr("d", path)
+                    .attr("fill", "green")
+                    .attr("stroke","white")
+                    .attr("vector-effect","non-scaling-stroke")
+                    .attr("stroke-width","2px");
+            
+            svg.select("#ocean")
+                .attr("width", width)
+                .attr("height", height);
+
+            var points = [
+                        {"name": "Boston", "coords": [-71.0589, 42.3601]},
+                        {"name": "London", "coords": [-0.1278, 51.5074]}
+                    ];
+
+            var dots = map.selectAll("circle")
+                            .data(points);
+
+            dots.enter().append("circle")
+                            .attr("transform", function(d){
+                                                        return "translate(" + proj(d.coords) + ")";
+                                                    })
+                            .attr("r", 10)
+                            .attr("fill","#000");
+
+            var zoom = d3.zoom()
+                        .translateExtent([[0, 0], [width, height]])
+                        .scaleExtent([1, 8])
+                        .on("zoom", zoomed);                                        
+
+            function zoomed() {
+                       map.attr("transform", d3.event.transform);
+                    }
+        
+            svg.call(zoom);
+        });
+
+
+
+
+    </script>
+
+</body>
+</html>
