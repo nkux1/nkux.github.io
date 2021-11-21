@@ -3,24 +3,38 @@
 <head>
     <meta charset="utf-8" />
     <title>FIFA 2021 players data </title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <link rel="stylesheet" href="./finalstyle.css"/>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="./css/finalstyle.css"/>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="./js/chartmain.js"></script>
+    <link rel="stylesheet" href="./css/radarchart.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <style>
+        .radar-chart .area {
+          fill-opacity: 0.7;
+        }
+        .radar-chart.focus .area {
+          fill-opacity: 0.3;
+        }
+        .radar-chart.focus .area.focused {
+          fill-opacity: 0.9;
+        }
+        .area.germany, .germany .circle {
+          fill: #FFD700;
+          stroke: none;
+        }
+    </style>
+
+    <script>
+        RadarChart.defaultConfig.color = function() {};
+        RadarChart.defaultConfig.radius = 3;
+        RadarChart.defaultConfig.w = 300;
+        RadarChart.defaultConfig.h = 300;
+    </script>
 
 </head>
 
 <body>
-    <!-- Side navigation -->
-    <div class="sidenav">
-        <a href="./final.html">Home</a>
-        <a class="act" href="./players.html">Players data</a>
-        <a href="./clubs.html">Clubs data</a>
-        <a href="./nations.html">Nations data</a>
-    </div>
-    
     <div class="main">
         <div id="banner">
             <h1>FIFA 2021 Players</h1>
@@ -29,9 +43,9 @@
             </p>
         </div>
 
+        <!-- Search bar section -->
         <div class="wrapper">
             <div class="search-input">
-                <div class="icon"><i class="ri-search-2-line"></i></div>
                 <a href="" target="_blank" hidden></a>
                 <input type="text" placeholder="Search for players">
                 <div class="autocom-box">
@@ -41,21 +55,73 @@
             </div>
         </div>
 
+        <!-- Player profile section -->
         <div class="player_profile">
             <div class="card_profile">
-                <img src="user.png" style="width: 80px;">
-                <h2> Player name</h2>
-                <p>Age : DOB : </p>
-                <p>Height :   Weight : </p>
+                <div class="top_profile">
+                    <div class="p_pic">
+                        <img src="https://cdn.sofifa.net/players/164/994/22_120.png" style="width: 180px;">
+                    </div>
+                    <div class="p_bio">
+                        <div class="p_name">
+                            <h3>Sergio Leonel Agüero del Castillo</h3>
+                        </div>
+                        <div class="p_age">
+                            <p>32y</p><p>175cm • 78kgs</p>
+                        </div>
+                    </div>
+                    <div class="p_place">
+                        <div class="p_nation">
+                            <div class="n_flag">
+                                <img src="https://cdn.sofifa.net/flags/pl.png" style="width: 40px;">
+                            </div>
+                            <div class="n_details">
+                                <h3>nation</h3>
+                                <p>ST • 12</p>
+                            </div>
+                        </div>
+                        <div class="p_nation">
+                            <div class="n_flag">
+                                <img src="https://cdn.sofifa.net/flags/pl.png" style="width: 40px;">
+                            </div>
+                            <div class="n_details">
+                                <h3>nation</h3>
+                                <p>ST • 12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_profile">
+                    <div class="p_stats">
+                        <h3> ST</h3>
+                        <p> Postion </p>
+                    </div>
+                    <div class="p_stats">
+                        <h3> ST</h3>
+                        <p> Prefered foot </p>
+                    </div>
+                    <div class="p_stats">
+                        <h3> ST</h3>
+                        <p> Overall rating </p>
+                    </div>
+                    <div class="p_stats">
+                        <h3> ST</h3>
+                        <p> Networth </p>
+                    </div>
+                </div>
             </div>
             <div class="card_profile">
-                <h2> radar chart</h2>
+                <div class="chart-container"></div>
             </div>
         </div>
+
+        <!-- Bubble chart section -->
         <div class="card_stats" style="height: 400px;">
             <h2> bar chart</h2>
             <p> bar graph to show the detailed player traits   </p>
         </div>
+
+        <!-- Comparision chart section -->
         <div class="compare">
             <div class="bars_bg">
                 <h2> Bar graph </h2>
@@ -77,13 +143,14 @@
                 <p> bar graph to compare 2 player traits </p>
             </div>
         </div>
-
-
-
     </div>    
 
     <!-- javascipts   -->
-    <script src="./script.js"></script>
-    <script src="./suggest.js"></script>
+    <script src="./js/csvdata.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/datachange.js"></script>
+    <script src="./js/radarchart.js" ></script>
+    <script> RadarChart.draw(".chart-container", data); </script>
+
 </body>
 </html>

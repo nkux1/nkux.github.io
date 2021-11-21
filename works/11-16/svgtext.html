@@ -85,6 +85,7 @@
 
                         if (lineWidth > columnWidth) 
                         {
+                            line++;
                             tspan.text(text);
                             tspan = textElement.append("tspan")
                             .attr("baseline-shift", "-100%")
@@ -94,13 +95,10 @@
                             })
                             .text(word);
                          }
-
                     });
-                
                 });
 
             labels.exit().remove();
-
         };
 
         drawBoxes(data1);

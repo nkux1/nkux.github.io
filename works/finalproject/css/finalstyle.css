@@ -14,9 +14,13 @@ body{
 
 ::selection{
   color: #fff;
-  background: #664AFF;
+  background: #000;
 }
 
+.main
+{
+    margin: 0px 30px;
+}
 
 .wrapper{
   max-width: 100%;
@@ -96,11 +100,10 @@ body{
 }
 
 
-
 #banner
 {
     background-color: #000;
-    background-image: url(./fifa21.jpg);
+    background-image: url(/works/finalproject/assets/fifa21.jpg);
     padding: 20vh 20px;
     background-position: top left;
     background-repeat: no-repeat;
@@ -109,72 +112,6 @@ body{
     text-align: center;
     color: #fff;
 }
-
-
-
-/* The sidebar menu */
-.sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 260px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #476ADB; 
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-    border-radius: 0px 16px 16px 0px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    width: 240px;
-    color: #fafafa;
-    display: block;
-    border-width: 10px;
-    border-style: solid;
-    border-radius: 18px;
-    border-color: #476ADB;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #fff;
-    background-color: #3A56B2;
-    border-width: 10px;
-    border-style: solid;
-    border-radius: 18px;
-    border-color: #476ADB;
-
-  }
-
-  .act
-  {
-    color: #fff;
-    background-color: #3A56B2;
-    border-width: 10px;
-    border-style: solid;
-    border-radius: 18px;
-    border-color: #476ADB;
-  }
-  
-  /* Style page content */
-  .main {
-    margin-left: 260px; /* Same as the width of the sidebar */
-    padding: 10px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
 
 
 .mainCards
@@ -210,6 +147,9 @@ body{
     color: #3A56B2;
 }
 
+
+/* profile part  */
+
 .player_profile
 {
     display: flex;
@@ -218,6 +158,8 @@ body{
 
 .card_profile
 {
+    display: flex;
+    flex-direction: column;
     box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
     width: 50%;
     margin: 20px;
@@ -225,12 +167,111 @@ body{
     border-radius: 10px;
 }
 
-.card_profile img
+.top_profile
+{
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.p_pic
+{
+  flex: 1;
+  margin-top: -30px;
+}
+
+.p_pic img
 {
     background-color: #fff;
     padding: 12px;
     border-radius: 8px;
     box-shadow: 0px 5px 15px 0px rgb(36 50 66 / 12%);
+}
+
+.p_bio
+{
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  padding-left: 14px;
+}
+
+.p_name h3
+{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  height: 102px;
+  width: 280px;
+}
+
+.p_age
+{
+  display: flex;
+  flex-direction: row;
+  padding-top: 8px;
+}
+
+.p_age p
+{
+  padding-right: 14px;
+  font-size: 18px;
+}
+
+
+.p_place
+{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.p_nation
+{
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: #efefef;
+  border-width: 2px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.n_details
+{
+  margin-left: 12px;
+}
+
+.bottom_profile
+{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-around;
+}
+
+
+.p_stats
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.p_stats h3
+{
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.p_stats p
+{
+  font-size: 18px;
+  font-weight: 500;
+  color: #666666;
 }
 
 .card_stats
@@ -274,8 +315,6 @@ body{
 {
     padding-top: 12px;
 }
-
-
 
 
 .each_nation
