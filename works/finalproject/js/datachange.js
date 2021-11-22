@@ -36,6 +36,7 @@ function dataChange(pname)
     nc_flags[1].innerHTML = `<img src="${filterData[0].club_logo_url}" style="width: 40px;"></img>`
 
     nc_details[0].innerHTML = `<h3>${filterData[0].nationality}</h3> <p>${filterData[0].nation_position} • ${filterData[0].nation_jersey_number}</p>`
-    nc_details[1].innerHTML = `<h3>${filterData[0].club_name}</h3> <p>${filterData[0].club_position} • ${filterData[0].club_jersey_number}</p>`
+    nc_details[1].innerHTML = `<h3>${filterData[0].club_name}</h3> <p>${filterData[0].club_position} • ${filterData[0].club_jersey_number}</p>`                      
 
+    radarChange(pname);
 }

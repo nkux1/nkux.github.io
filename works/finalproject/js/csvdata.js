@@ -5,7 +5,7 @@ let searchNames = [];
 let finalData = [];
 let i=0;
 
-d3.csv("players_data.csv",function(error, data)
+d3.csv("players_data.csv",function(error, playdata)
 {
     if(error)
     {
@@ -14,8 +14,8 @@ d3.csv("players_data.csv",function(error, data)
 
     else{
         //converting number strings to values
-        data.forEach(function(d) {
-            d.pase = parseFloat(d.pase);
+        playdata.forEach(function(d) {
+            d.pace = parseFloat(d.pace);
             d.shooting = parseFloat(d.shooting);
             d.passing = parseFloat(d.passing);
             d.dribbling = parseFloat(d.dribbling);
@@ -23,12 +23,14 @@ d3.csv("players_data.csv",function(error, data)
             d.physic = parseFloat(d.physic);
           });
 
-          data.forEach(function(d,i){
+          playdata.forEach(function(d,i){
               searchNames[i] = d.long_name;  //adding names to search list
               i++;
           });
 
-          finalData = data;  // assigning csv data to array dataset 
+          finalData = playdata;  // assigning csv data to array dataset 
           console.log("finaldata", finalData);  
     }
 });
+
+console.log("filter data",filterData[0].pace);
