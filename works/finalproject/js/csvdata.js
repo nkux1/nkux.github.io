@@ -1,5 +1,6 @@
 
 // script to reading csv data 
+console.log("csvdata");
 
 let searchNames = [];
 let finalData = [];

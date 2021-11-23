@@ -1,4 +1,7 @@
 
+console.log("radar script");
+
+
 let myChart1 = document.getElementById("myChart").getContext('2d');
 
 let r_data = [];

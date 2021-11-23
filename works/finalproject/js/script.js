@@ -1,4 +1,6 @@
 
+console.log("script");
+
 // Script for search bar functionality
 
 const searchWrapper = document.querySelector(".search-input");

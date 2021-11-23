@@ -1,5 +1,9 @@
 
+console.log("datachange");
+
 // script for changing player data
+
+var filterData;
 
 function dataChange(pname)
 {
@@ -10,7 +14,7 @@ function dataChange(pname)
     var nc_details = document.getElementsByClassName("n_details");
     var playerStats = document.getElementsByClassName("p_stats");
 
-    var filterData = finalData.filter(function(d)
+    filterData = finalData.filter(function(d)
                                 {
                                     return d.long_name == pname;
                                 });

@@ -6,33 +6,9 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <link rel="stylesheet" href="./css/finalstyle.css"/>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <!-- <script src="./js/chartmain.js"></script>
-    <link rel="stylesheet" href="./css/radarchart.css"> -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <style>
-        .radar-chart .area {
-          fill-opacity: 0.7;
-        }
-        .radar-chart.focus .area {
-          fill-opacity: 0.3;
-        }
-        .radar-chart.focus .area.focused {
-          fill-opacity: 0.9;
-        }
-        .area.germany, .germany .circle {
-          fill: #FFD700;
-          stroke: none;
-        }
-    </style>
-
-    <!-- <script>
-        RadarChart.defaultConfig.color = function() {};
-        RadarChart.defaultConfig.radius = 3;
-        RadarChart.defaultConfig.w = 300;
-        RadarChart.defaultConfig.h = 300;
-    </script> -->
+    <script src="./js/csvdata.js"></script>
 
 </head>
 
@@ -112,9 +88,12 @@
                     </div>
                 </div>
             </div>
-            <div class="card_profile">
+            <div class="profile_charts">
                 <div class="r_chart">
                     <canvas id="myChart"></canvas>
+                </div>
+                <div class="rchart2" id="rchart2">
+
                 </div>
             </div>
         </div>
@@ -150,14 +129,10 @@
     </div>    
 
     <!-- javascipts   -->
-    <script src="./js/csvdata.js"></script>
+    <script src="./js/rdrchart.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/datachange.js"></script>
     <script src="./js/radarscript.js"></script>
-
-    <!-- <script src="./js/radarchart.js" ></script>
-    <script> RadarChart.draw(".chart-container", data);</script> -->
- 
 
 </body>
 </html>
