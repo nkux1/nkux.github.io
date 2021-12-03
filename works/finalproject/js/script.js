@@ -1,6 +1,4 @@
 
-console.log("script");
-
 // Script for search bar functionality
 
 const searchWrapper = document.querySelector(".search-input");
@@ -15,7 +13,7 @@ inputBox.onkeyup = (e)=>{
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
 
-    console.log(userData);
+    console.log(userData); // remove logs
 
     if(userData){
 
@@ -31,7 +29,7 @@ inputBox.onkeyup = (e)=>{
         showSuggestions(emptyArray);
         let allList = suggBox.querySelectorAll("li");
         for (let i = 0; i < allList.length; i++) {
-            allList[i].setAttribute("onclick", "select(this)");  //adding onclick attribute in all li tag
+            allList[i].setAttribute("onclick", "select(this)");  //adding suggestion to search box
         }
     }
     else{

@@ -1,9 +1,5 @@
 
-console.log("datachange");
-
 // script for changing player data
-
-var filterData;
 
 function dataChange(pname)
 {
@@ -14,11 +10,11 @@ function dataChange(pname)
     var nc_details = document.getElementsByClassName("n_details");
     var playerStats = document.getElementsByClassName("p_stats");
 
-    filterData = finalData.filter(function(d)
+    var filterData = finalData.filter(function(d)
                                 {
                                     return d.long_name == pname;
                                 });
-                                
+                          
     // changing name of player
     playerName[0].innerHTML = `<h3>${pname}</h3>`;
 
@@ -42,5 +38,6 @@ function dataChange(pname)
     nc_details[0].innerHTML = `<h3>${filterData[0].nationality}</h3> <p>${filterData[0].nation_position} • ${filterData[0].nation_jersey_number}</p>`
     nc_details[1].innerHTML = `<h3>${filterData[0].club_name}</h3> <p>${filterData[0].club_position} • ${filterData[0].club_jersey_number}</p>`                      
 
-    radarChange(pname);
+    rdrchart(filterData);
+    bub_data(filterData);
 }

@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./js/csvdata.js"></script>
+    
 
 </head>
 
@@ -23,10 +23,10 @@
 
         <!-- Search bar section -->
         <div class="wrapper">
-            <div class="search-input">
+            <div class="search-input"> //pos relative
                 <a href="" target="_blank" hidden></a>
                 <input type="text" placeholder="Search for players">
-                <div class="autocom-box">
+                <div class="autocom-box"> //pos absolute
                     <!-- here list are inserted from javascript -->
                 </div>
                 <div class="icon"><i class="ri-search-2-line"></i></div>
@@ -89,19 +89,21 @@
                 </div>
             </div>
             <div class="profile_charts">
-                <div class="r_chart">
-                    <canvas id="myChart"></canvas>
-                </div>
-                <div class="rchart2" id="rchart2">
-
-                </div>
+                <svg class="rchart2" id="rchart2">
+                    <g id="cirs"> </g>
+                    <g id="vals"> </g>
+                    <g id="scale"> </g>
+                    <path id="graphs"></path>
+                    <g id="dots"></g>
+                </svg>
+                <div id="tooltip"> </div> 
             </div>
         </div>
 
         <!-- Bubble chart section -->
-        <div class="card_stats" style="height: 400px;">
-            <h2> bar chart</h2>
-            <p> bar graph to show the detailed player traits   </p>
+        <div id="bub_chart" class="card_stats" style="height: 400px;">
+            <h2> bubble chart</h2>
+            
         </div>
 
         <!-- Comparision chart section -->
@@ -126,13 +128,13 @@
                 <p> bar graph to compare 2 player traits </p>
             </div>
         </div>
-    </div>    
+    </div>
 
     <!-- javascipts   -->
+    <script src="./js/csvdata.js"></script>
     <script src="./js/rdrchart.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/buble.js"></script>
     <script src="./js/datachange.js"></script>
-    <script src="./js/radarscript.js"></script>
-
 </body>
 </html>

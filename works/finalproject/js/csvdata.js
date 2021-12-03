@@ -1,10 +1,9 @@
 
 // script to reading csv data 
-console.log("csvdata");
-
 let searchNames = [];
-let finalData = [];
 let i=0;
+
+let finalData=[];
 
 d3.csv("players_data.csv",function(error, playdata)
 {
@@ -30,8 +29,10 @@ d3.csv("players_data.csv",function(error, playdata)
           });
 
           finalData = playdata;  // assigning csv data to array dataset 
-          console.log("finaldata", finalData);  
+          console.log("finaldata", finalData); 
+          
+        //   rdrchart(playdata);
     }
 });
 
-console.log("filter data",filterData[0].pace);
+

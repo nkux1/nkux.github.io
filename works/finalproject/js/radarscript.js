@@ -20,6 +20,7 @@ function radarChange(pname)
     {
         return d.long_name == pname;
     });
+
     console.log("b4",r_data);
 
     r_data[0]= radarData[0].pace;

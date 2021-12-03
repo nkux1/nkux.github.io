@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title> viz tech class</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <h1>D3 JS</h1>
+
+    <button onclick="drawCircles(data1)"> data 1 </button>
+
+    <button onclick="drawCircles(data2)"> data 2 </button>
+
+    <script>
+
+        var data1 = [4, 8, 15, 16, 23, 42];
+
+        var data2 = [2, 83, 15, 163, 23, 424];
+
+        // var i=0;
+
+        function drawCircles(dataArray)
+        {
+            console.log("fun entr", dataArray);
+
+            // Update…
+            var p = d3.select("body")
+                        .selectAll("p")
+                        .data(dataArray)
+                        .text(function(d) { return d; });
+
+            // Enter…
+            p.enter().append("p")
+                .text(function(d,i) 
+                { 
+                    return d+i; 
+                    // i++
+                });
+
+            // Exit…
+            p.exit().remove();
+        }
+
+    </script>
+</body>
+</html>
