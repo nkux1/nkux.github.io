@@ -90,7 +90,6 @@ function mainBubblechart(data)
     //     {
     //         legend.push(d.group);
     //     }
-        
     // });
 
     // console.log("legend",legend);
