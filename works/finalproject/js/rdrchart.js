@@ -14,7 +14,7 @@ let valdt = [];
 
 let radialScale = d3.scaleLinear()
         .domain([20,100])
-        .range([0,120]);
+        .range([0,220]);
 
 let ticks = [20,40,60,80,100];
 
@@ -24,8 +24,8 @@ let line = d3.line()
                 .y(d => d.y);
 
 var svg = d3.select("#rchart2")
-            .attr("width", 400)
-            .attr("height", 300);
+            .attr("width", 700)
+            .attr("height", 600);
 
 var cirs = d3.select("#cirs");
 
@@ -41,17 +41,17 @@ function rdrchart(statsData)
 
     ticks.forEach(t =>
         cirs.append("circle")
-            .attr("cx", 150)
-            .attr("cy", 150)
+            .attr("cx", 250)
+            .attr("cy", 250)
             .attr("fill", "none")
-            .attr("stroke", "gray")
+            .attr("stroke", "#f0f0f0")
             .attr("r", radialScale(t))
     );
 
     ticks.forEach(t =>
         vals.append("text")
-            .attr("x", 130)
-            .attr("y", 150 - radialScale(t))
+            .attr("x", 230)
+            .attr("y", 250 - radialScale(t))
             .attr("font-size","12px")
             .text(t.toString())
     );
@@ -59,7 +59,7 @@ function rdrchart(statsData)
     function angleToCoordinate(angle, value){
         let x = Math.cos(angle) * radialScale(value);
         let y = Math.sin(angle) * radialScale(value);
-        return {"x": 150 + x, "y": 150 - y};
+        return {"x": 250 + x, "y": 250 - y};
     }
 
     for (var i = 0; i < features.length; i++) {
@@ -71,17 +71,18 @@ function rdrchart(statsData)
 
         //draw axis line
         scale.append("line")
-            .attr("x1", 150)
-            .attr("y1", 150)
+            .attr("x1", 250)
+            .attr("y1", 250)
             .attr("x2", line_coordinate.x)
             .attr("y2", line_coordinate.y)
-            .attr("stroke","black");
+            .attr("stroke","#f0f0f0");
 
         //draw axis label
         scale.append("text")
             .attr("x", label_coordinate.x)
             .attr("y", label_coordinate.y)
-            .text(ft_name);
+            .text(ft_name)
+            .attr("color","#666666");
     }
 
     features.forEach(f => dum_data[f] = statsData[0][f]);

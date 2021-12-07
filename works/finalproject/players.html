@@ -15,7 +15,7 @@
 <body>
     <div class="main">
         <div id="banner">
-            <h1>FIFA 2021 Players</h1>
+            <h1 style="font-size: 48px;">FIFA 2021 Players</h1>
             <p>
                 All football players stats data
             </p>
@@ -23,10 +23,10 @@
 
         <!-- Search bar section -->
         <div class="wrapper">
-            <div class="search-input"> //pos relative
+            <div class="search-input">
                 <a href="" target="_blank" hidden></a>
                 <input type="text" placeholder="Search for players">
-                <div class="autocom-box"> //pos absolute
+                <div class="autocom-box">
                     <!-- here list are inserted from javascript -->
                 </div>
                 <div class="icon"><i class="ri-search-2-line"></i></div>
@@ -88,8 +88,15 @@
                     </div>
                 </div>
             </div>
-            <div class="profile_charts">
-                <svg class="rchart2" id="rchart2">
+        </div>
+
+        <!-- Charts section -->
+
+        <div class="mainCharts">
+            <!-- Radar chart section -->
+            <div class="card_stats">
+                <h2> Radar chart</h2>               
+                <svg class="rchart2" id="rchart2" style="overflow: visible; margin-top: 30px;">
                     <g id="cirs"> </g>
                     <g id="vals"> </g>
                     <g id="scale"> </g>
@@ -98,36 +105,15 @@
                 </svg>
                 <div id="tooltip"> </div> 
             </div>
+
+            <!-- Bubble chart section -->
+            <div id="bub_chart" class="card_stats" >
+                <h2> bubble chart</h2>
+                <div id="tooltip_bub"> </div> 
+            </div>
+
         </div>
 
-        <!-- Bubble chart section -->
-        <div id="bub_chart" class="card_stats" style="height: 400px;">
-            <h2> bubble chart</h2>
-            
-        </div>
-
-        <!-- Comparision chart section -->
-        <div class="compare">
-            <div class="bars_bg">
-                <h2> Bar graph </h2>
-                <p> bar graph to compare 2 player traits </p>
-            </div>
-            <div class="center_titles">
-                <h2> Comparision traits </h2>
-                <p> Pace </p>
-                <p> Shooting </p>
-                <p> Passing </p>
-                <p> Dribbling </p>
-                <p> Defending </p>
-                <p> Physic </p>
-                <p> Comparision trait - 1 </p>
-                <p> Comparision trait - 2 </p>
-            </div>
-            <div class="bars_bg">
-                <h2> Bar graph</h2>
-                <p> bar graph to compare 2 player traits </p>
-            </div>
-        </div>
     </div>
 
     <!-- javascipts   -->
@@ -135,6 +121,7 @@
     <script src="./js/rdrchart.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/buble.js"></script>
+    <script src="./js/bubchart_data.js"></script>
     <script src="./js/datachange.js"></script>
 </body>
 </html>
