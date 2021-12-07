@@ -62,11 +62,14 @@ function mainBubblechart(data)
                     {
                         tooltip_bub.html(`${d.name}`).style("visibility", "visible")
                         .style("top", d3.event.pageY + 10 + "px")
-                        .style("left", d3.event.pageX + 10 + "px")
+                        .style("left", d3.event.pageX + 10 + "px");
+
+                        d3.select(this).style("stroke-width","4px").style("stroke",function(d){ return color(d.group)});
                     })
                     .on("mouseout", function() 
                     {
                         tooltip_bub.html(``).style("visibility", "hidden");
+                        node.style("stroke-width","0px").style("stroke","#f0f0f0");
                     })
                     .call(d3.drag() // call specific function when circle is dragged
                         .on("start", dragstarted)
