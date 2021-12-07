@@ -82,32 +82,32 @@ function mainBubblechart(data)
 
     txt.enter().append("text").attr("x",width / 2).attr("y",height / 2).text(function(d){ return d.value}).attr("baseline-shift", "-50%");
 
-    var legend =[];
+    // var legend =[];
 
-    data.forEach(d => {
+    // data.forEach(d => {
         
-        if(legend.includes(d.group) == false)
-        {
-            legend.push(d.group);
-        }
+    //     if(legend.includes(d.group) == false)
+    //     {
+    //         legend.push(d.group);
+    //     }
         
-    });
+    // });
 
-    console.log("legend",legend);
+    // console.log("legend",legend);
 
-        var leg = svg.selectAll("rect").data(legend)
-            .attr("y",height-20)
-            .attr("x",50)
-            .style("fill", "#000" )
-            .attr("height","20")
-            .attr("width","20");
+    //     var leg = svg.selectAll("rect").data(legend)
+    //         .attr("y",height-20)
+    //         .attr("x",50)
+    //         .style("fill", "#000" )
+    //         .attr("height","20")
+    //         .attr("width","20");
 
-        leg.enter().append("rect")
-            .attr("y",height-20)
-            .attr("x",50)
-            .style("fill", "#000" )
-            .attr("height","20")
-            .attr("width","20");
+    //     leg.enter().append("rect")
+    //         .attr("y",height-20)
+    //         .attr("x",50)
+    //         .style("fill", "#000" )
+    //         .attr("height","20")
+    //         .attr("width","20");
    
 
     // Features of the forces applied to the nodes:
