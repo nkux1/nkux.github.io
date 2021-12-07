@@ -19,13 +19,13 @@ function mainBubblechart(data)
 
     // A scale that gives a X target position for each group
     var x = d3.scaleOrdinal()
-            .domain([1, 2, 3, 4, 5, 6])
-            .range([50, 100, 160, 220, 280 ,340])
+            .domain([1, 2, 3, 4, 5, 6,7])
+            .range([50, 100, 150, 200, 250 ,300, 350])
 
     // A color scale
     var color = d3.scaleOrdinal()
-    .domain([1, 2, 3, 4, 5, 6])
-    .range([ "#F8766D", "#00BA38", "#619CFF", "#F80000", "#00BA00", "#000000"])
+    .domain([1, 2, 3, 4, 5, 6,7])
+    .range([ "#E9967A", "#BDB76B", "#DDA0DD", "#90EE90", "#DEB887", "#40E0D0","#B0E0E6"])
 
     let tooltip_bub = d3.select("#tooltip_bub").append("div")
                     .attr("class","d3-tooltip")
@@ -41,7 +41,11 @@ function mainBubblechart(data)
 
     // Initialize the circle: all located at the center of the svg area
 
-    var node =  svg.selectAll("circle").data(data)
+    var node = svg.selectAll("circle").data(data)
+
+    var enterNode = node.enter().append("circle");
+
+    node.merge(enterNode)
                     .attr("r", function(d)
                                 { 
                                     if(d.value<=10) return 18
@@ -53,38 +57,21 @@ function mainBubblechart(data)
                     .attr("cy", height / 2)
                     .style("fill", function(d){ return color(d.group)})
                     .style("fill-opacity", 0.8)
+                    .attr("class","cirs")
+                    .on("mouseover", function(d) 
+                    {
+                        tooltip_bub.html(`${d.name}`).style("visibility", "visible")
+                        .style("top", d3.event.pageY + 10 + "px")
+                        .style("left", d3.event.pageX + 10 + "px")
+                    })
+                    .on("mouseout", function() 
+                    {
+                        tooltip_bub.html(``).style("visibility", "hidden");
+                    })
                     .call(d3.drag() // call specific function when circle is dragged
                         .on("start", dragstarted)
                         .on("drag", dragged)
-                        .on("end", dragended))
-                    .on("mouseover", function(d) 
-                        {
-                            tooltip_bub.html(`${d.name}`).style("visibility", "visible")
-                            .style("top", d3.event.pageY + 10 + "px")
-                            .style("left", d3.event.pageX + 10 + "px");
-                        })
-                .on("mouseout", function() 
-                        {
-                            tooltip_bub.html(``).style("visibility", "hidden");
-                        });
-
-
-    node.enter().append("g").append("circle")
-        .attr("r", function(d)
-                        { 
-                            if(d.value<=10) return 18
-                            else if(d.value <= 35 && d.value > 10) return 24
-                            else if(d.value <= 60 && d.value > 35) return 34
-                            else if(d.value > 60) return 48
-                        })
-        .attr("cx", width / 2)
-        .attr("cy", height / 2)
-        .style("fill", function(d){ return color(d.group)})
-        .style("fill-opacity", 0.8)
-        .call(d3.drag() // call specific function when circle is dragged
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended));
+                        .on("end", dragended));
 
 
     var txt = svg.selectAll("text").data(data)
@@ -131,10 +118,10 @@ function mainBubblechart(data)
         .force("charge", d3.forceManyBody().strength(1)) // Nodes are attracted one each other of value is > 0
         .force("collide", d3.forceCollide().strength(.1).radius(function(d)
                                                                     { 
-                                                                        if(d.value<=10) return 28
-                                                                        else if(d.value <= 30 && d.value > 10) return 38
-                                                                        else if(d.value <= 50 && d.value > 30) return 48
-                                                                        else if(d.value > 50) return 58
+                                                                        if(d.value<=10) return 22
+                                                                        else if(d.value <= 30 && d.value > 10) return 28
+                                                                        else if(d.value <= 50 && d.value > 30) return 38
+                                                                        else if(d.value > 50) return 52
                                                                     })
                                                         .iterations(1)) // Force that avoids circle overlapping
 

@@ -297,3 +297,12 @@ body{
 #scale text{
   color: #666666;
 }
+
+.cirs:hover
+{
+  fill-opacity: 1;
+  border-style: solid;
+  border-color: #000;
+  border-width: 2px;
+
+}
