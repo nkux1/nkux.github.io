@@ -30,8 +30,6 @@ d3.csv("players_data.csv",function(error, playdata)
 
           finalData = playdata;  // assigning csv data to array dataset 
           console.log("finaldata", finalData); 
-          
-        //   rdrchart(playdata);
     }
 });
 

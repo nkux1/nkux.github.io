@@ -107,8 +107,8 @@ function rdrchart(statsData)
         .datum(coordinates)
         .attr("d",line)
         .attr("stroke-width", 3)
-        .attr("stroke", "darkorange")
-        .attr("fill", "darkorange")
+        .attr("stroke", "Aquamarine")
+        .attr("fill", "Aquamarine")
         .attr("stroke-opacity", 1)
         .attr("opacity", 0.5);
 
@@ -129,7 +129,10 @@ function rdrchart(statsData)
 
         var edgeDots= d3.select("#dots").selectAll("circle").data(coordinates)
         .attr("r",6)
-        .attr("fill","darkorange")
+        .attr("fill", function(d,i)
+                        {
+                            return clrRange[i];
+                        })
         .attr("cx",function(c,k){
                             return c.x;
                             k++;
@@ -147,20 +150,27 @@ function rdrchart(statsData)
                                     .style("top", d3.event.pageY + 10 + "px")
                                     .style("left", d3.event.pageX + 10 + "px");
                                 };
-                            }                            
+                            } 
+
+                            d3.select(this).attr("r",10);
+                            
                         })
         .on("mouseout", function() {
                             tooltip.html(``).style("visibility", "hidden");
+                            edgeDots.attr("r",6);
                         });
 
         edgeDots.enter().append("circle")
             .attr("r",6)
-            .attr("fill","darkorange")
-            .attr("cx",function(c,i)
+            .attr("fill", function(d,i)
+                            {
+                                return clrRange[i];
+                            })
+            .attr("cx",function(c)
                             {
                                 return c.x;
                             })
-            .attr("cy",function(c,i)
+            .attr("cy",function(c)
                             {
                                 return c.y;
                             })
@@ -174,9 +184,11 @@ function rdrchart(statsData)
                                         .style("left", d3.event.pageX + 10 + "px");
                                     };
                                 } 
+                                d3.select(this).attr("r",10);
                             })
             .on("mouseout", function() {
                                 tooltip.html(``).style("visibility", "hidden");
+                                edgeDots.attr("r",6);
                             });
     }
 

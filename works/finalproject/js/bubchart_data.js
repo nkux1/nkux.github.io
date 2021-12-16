@@ -2,8 +2,6 @@
 
 function bub_data(d)
 {
-    console.log("f_dta1",d);
-
         d[0].pace_acceleration = parseFloat(d[0].pace_acceleration);
         d[0].pace_sprint_speed	 = parseFloat(d[0].pace_sprint_speed);
 
@@ -48,19 +46,13 @@ function bub_data(d)
         var bub_data = d[0];
         var char = "_";
 
-        console.log("f_dta",Object.keys(bub_data).length);
-
         for(i=0;i<Object.keys(bub_data).length;i++)
         {   
             if(typeof(bub_data[Object.keys(bub_data)[i]])=="number" && Object.keys(bub_data)[i].includes(char))
             {
-                console.log("data type",mainBuble);
                 myString = Object.keys(bub_data)[i]
-
                 mainBuble.push({"name": myString,"group":myString.substring(0, myString.indexOf('_')),"value":bub_data[myString]})
             }
         }
-
         mainBubblechart(mainBuble)
-    
 }
