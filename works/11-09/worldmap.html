@@ -57,15 +57,21 @@
                     .attr("fill", "green")
                     .attr("stroke","white")
                     .attr("vector-effect","non-scaling-stroke")
-                    .attr("stroke-width","2px");
+                    .attr("stroke-width","0.5px");
             
             svg.select("#ocean")
                 .attr("width", width)
                 .attr("height", height);
 
             var points = [
-                        {"name": "Boston", "coords": [-71.0589, 42.3601]},
-                        {"name": "London", "coords": [-0.1278, 51.5074]}
+                        {"name": "Boston", "coords": [8.9314904, 47.7515617]},
+                        {"name": "London", "coords": [8.9314779, 47.751477]},
+                        {"name": "London", "coords": [8.9315104, 47.7515003]},
+                        {"name": "London", "coords": [8.9314342, 47.7514936]},
+                        {"name": "London", "coords": [3.0573747, 42.2982004]},
+                        {"name": "London", "coords": [3.1111977, 42.223096]},
+                        {"name": "London", "coords": [3.0573492, 42.2978603]},
+                        {"name": "London", "coords": [8.6555224, 47.648913]}
                     ];
 
             var dots = map.selectAll("circle")
@@ -75,7 +81,7 @@
                             .attr("transform", function(d){
                                                         return "translate(" + proj(d.coords) + ")";
                                                     })
-                            .attr("r", 10)
+                            .attr("r", 2)
                             .attr("fill","#000");
 
             var zoom = d3.zoom()

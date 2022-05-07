@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <!-- <script src="https://unpkg.com/scrollama"></script> -->
+    <script src="./scrollama/build/scrollama.js"></script>
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <!-- <script src="https://d3js.org/d3.geo.projection.v0.min.js"></script> -->
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style/left.css">
+</head>
+
+<body>
+    <div class="intro">
+        <h1>Bird Migration patterns</h1>
+        <p>
+            Bird migration is the annual, large scale movement of birds from locations of lower food and nesting resources to locations with higher resources. Bird migration is important to study because it gives us insights on bird movements, their behavior, and relevant concepts such as bird evolution, climate change, habitat, and species conservation. Bird migration charts are tools to visualize these complex bird movements across the globe which are relevant for scientific as well as general public consumption. Collecting data to create these visualizations is difficult and is done by using different methods like bird ringing, counting, radio and satellite tracking, geo-logging, radar tracking. The data collection method used has an impact on how the bird migration chart is visualized. This report summarizes current state-of-the-art tools used for the data collection on bird migration and the visualization tools that support the discovery and advancement of the field.
+            <br><br>
+            There are 4 different flyways in North America which most of the birds migration patterns are clasiffied into. <br>
+            <b>The Central Flyway • The Atlantic Flyway • The Mississippi Flyway • The Pacific Flyway</b>
+            <br><br>
+            Scientists use several techniques in studying migration, including banding, satellite tracking, and a relatively new method involving lightweight devices known as geolocators. One of the goals is to locate important stopover and wintering locations. Once identified, steps can be taken to protect and save these key locations.
+            <br>
+            Birds generally travel in loops year-round, the general case is birds move to <b>northern regions in summers and southern regions in winters.</b> 
+        </p>
+    </div>
+    <!-- <div id="tooltip"><span id="value"> </span></div> -->
+    <section id='scroll'>
+        <!--  graphic container  -->
+        <div class='scroll__graphic'>
+            <!--   actual graphic/chart   -->
+            <div id='chart'> 
+                <svg id="viz">
+                    
+                    <rect id="ocean" fill="white" />
+                    <g id="map"></g>
+                    <path class="route"> </path>
+                </svg>
+            </div>
+        </div>
+        <!--  step/text container  -->
+        <div class='scroll__text'>
+            <div class='step' data-step='1'>
+                <img src="img/s1.jpg" alt="bird image" class="bird_img">
+                <h2> Black-crowned Night Heron</h2>
+                <h4>Nycticorax nycticorax</h4>
+                <p>Black-crowned Night-Herons are stocky birds compared to many of their long-limbed heron relatives.
+                    <br> <br>
+                    It uses the <b>The Central Flyway</b>.
+                    Some populations stay in one place year-round, while others disperse short distances of 5–60 
+                    miles. Others migrate farther, such as from Alberta to Mexico and Cuba from their <span id="tips_text">habitat</span>
+                </p>
+            </div>
+            <div class='step' data-step='2'>
+                <img src="img/s2.jpg" alt="bird image" class="bird_img">
+                <h2>Brown Pelican</h2>
+                <h4>Pelecanus occidentalis</h4>
+                <p>The Brown Pelican is a comically elegant bird with an oversized bill, sinuous neck, and big, dark body. Squadrons glide above the surf along southern and western coasts, rising and falling in a graceful echo of the waves.
+                    <br> <br>
+                    It uses the <b>The Atlantic Flyway</b>.
+                    Many Atlantic populations disperse northward in the summer after breeding and return southward in autumn, probably to follow concentrations of fish.
+                </p>
+            </div>
+            <div class='step' data-step='3'>
+                <img src="img/s3.jpg" alt="bird image" class="bird_img">
+                <h2>Black-bellied Plover</h2>
+                <h4>Pluvialis squatarola</h4>
+                <p>Black-bellied Plovers are a dazzling mix of snow white and jet black, accented by checkerboard wings. They are supreme aerialists, both agile and swift. 
+                    <br> <br>
+                    It uses the <b>The Atlantic Flyway</b>.
+                    Black-bellied Plovers are vocal and conspicuous, relatively easily found on beaches and coastal wetlands of all coasts of North America. Look for them on tidal mudflats anytime except high tide.
+                </p>
+            </div>
+            <div class='step' data-step='4'>
+                <img src="img/s4.jpg" alt="bird image" class="bird_img">
+                <h2>Long-billed Curlew</h2>
+                <h4>Numenius americanus</h4>
+                <p>North America's largest shorebird, the Long-billed Curlew, is a graceful creature with an almost impossibly long, thin, and curved bill. 
+                    <br> <br>
+                    It uses the <b>The Mississippi Flyway</b>.
+                    Short- to medium-distance migrant. Moves from interior breeding sites to coastal sites as well as inland sites in California and Mexico for the winter.
+            </div>
+            <div class='step' data-step='5'>
+                <img src="img/s5.jpg" alt="bird image" class="bird_img">
+                <h2>Pacific Loon</h2>
+                <h4>Gavia pacifica</h4>
+                <p>Breeding Pacific Loons are dapper birds with soft gray heads and intricate black-and-white patterning on the back and neck. This is the most abundant of North America’s five loon species.
+                    <br> <br>
+                    It uses the <b>The Pacific Flyway</b>.
+                    Pacific Loons are relatively easy to find on their namesake ocean from late fall (October) through spring (May). Far fewer are present in the height of summer. They forage near the coast and also into large bays.
+                </p>
+            </div>
+            <div class='step' data-step='6'>
+                <img src="img/s6.jpg" alt="bird image" class="bird_img">
+                <h2>Swainson's hawk</h2>
+                <h4>Buteo swainsoni</h4>
+                <p>A classic species of the open country of the Great Plains and the West, Swainson’s Hawks soar on narrow wings or perch on fence posts and irrigation spouts. 
+                    <br> <br>
+                    It uses the <b>The Pacific Flyway</b>.
+                    Starting in late August and September, nearly the whole population of Swainson’s Hawks migrates from North America to Argentina, a roundtrip of more than 12,000 miles for the northernmost breeders.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="outro">
+        <p><b>Bird Migration visualizations</b> are of importance to the scientific community as well as for general public consumption. They help to visualize complex patterns of bird movements across the world which can have an impact on various fields such as conservation, climate change studies.
+            <br><br>
+            Bird migration charts capture the attention of expert ornithologists and common citizens alike. They have been a great source of knowledge on various applied fields like climate change, habitat conservations, bird conservation to name a few. There are efforts to combine the power of technology and the manpower of citizens to work towards providing a conducive environment for counting birds as they take up perilous migrations. Audubon and Bird Cast, by the Cornell Lab are two such communities. Bird Cast is a project which combines the might of the Next Generation Radar (NEXRAD) along with volunteering bird watchers to keep a track of a database of bird data
+            <br><br>
+            One of the primary reasons why bird migration is important is because of its impact on many related fields like climate change, bird conservation, habitat studies, and policymaking to name a few. Interestingly this rather interesting and important phenomenon was not visualized for a long time in history. This was because collecting bird data is a rather difficult task and scientific methods are only a century old. There are multiple methods but they all come with their limitations. There is a need to coordinate internationally with various agencies. It is thus also important to have enough bird literate citizens who can lend a helping hand in various bird census efforts.
+        </p>
+
+        <div class="references">
+            <h4>References</h4>
+            <a href="https://www.allaboutbirds.org/guide"> allaboutbirds.org </a> <br>
+            <a href="https://nationalzoo.si.edu/migratory-birds/migratory-birds-tracking-map"> nationalzoo.si.edu </a> <br>
+            <a>Danny, M.(2016), Long hops: Making sense of Bird Migration</a> <br>
+            <a>Migrating Birds: Scouts of Distant Worlds by Petra Höfer, Freddie Röckenhaus on Amazon Prime</a>
+        </div>
+
+    </div>
+
+    <script src="./scrollscript.js"></script>
+</body>
+</html>

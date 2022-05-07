@@ -1,0 +1,81 @@
+.intro {
+    max-width: 500px;
+    padding: 20px;
+}
+
+.outro {
+    max-width: 500px;
+    padding: 20px;
+    margin-bottom: 200px
+}
+
+p{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* all scrolling positions set to relative */
+#scroll {
+    position: relative;
+    margin: 0 auto;
+}
+
+#chart {
+    background-color: blanchedalmond;
+}
+
+/* set scroll graphic to absolute and lock in the position */
+.scroll__graphic {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* remain fixed when inside the "sticky" area */
+.scroll__graphic.is-fixed {
+    position: sticky;
+}
+
+/* when at bottom of "sticky" area section, remove fixed position */
+.scroll__graphic.is-bottom {
+    bottom: 0;
+    top: auto;
+}
+
+.scroll__text {
+    padding: 0 1rem;
+    max-width: 30rem;
+    /* this will center the text */
+    margin: 0 auto; 
+}
+
+.step {
+    opacity: 0.5;
+    padding: 1rem;
+    max-width: 800px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.step.is-active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.step p {
+    margin: 0 auto;
+    height: 300px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+}
+
+circle {
+    fill: purple;;
+    opacity: 0.7;
+}

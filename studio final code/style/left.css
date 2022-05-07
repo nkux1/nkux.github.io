@@ -1,0 +1,165 @@
+
+
+.intro {
+    height: 80vh;
+    padding: 20px;
+    margin-bottom: 60px;
+    background: linear-gradient(to top, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0.3) 100%),url(./main.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 50px;
+    padding-top: 180px;
+}
+
+.intro p{
+    width: 65%;
+}
+
+.outro {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(181, 243, 255) 100%);
+    padding: 20px;
+    padding-bottom: 80px;
+    margin-top: 200px;
+}
+
+.outro p{
+    width: 70%;
+}
+
+p{
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: #3b3b3b;
+}
+
+h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 70px;
+    margin: 10px 0px;
+}
+
+h2{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 10px 0px;
+    color: #585858;
+}
+
+a{
+    font-size: 14px;
+    padding: 4px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.bird_img
+{
+    width: 600px; 
+    border-radius: 4px;
+}
+
+/* all scrolling positions set to relative */
+#scroll {
+    position: relative;
+}
+
+#chart {
+    background-color: blanchedalmond;
+}
+
+/* set scroll graphic to absolute and lock in the position */
+.scroll__graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    z-index: -10;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* remain fixed when inside the "sticky" area */
+.scroll__graphic.is-fixed {
+    position: sticky;
+}
+
+/* when at bottom of "sticky" area section, remove fixed position */
+.scroll__graphic.is-bottom {
+    bottom: 0;
+    top: auto;
+}
+
+.scroll__text {
+    padding: 0 1rem;
+    max-width: 30rem;
+    margin-left: 840px;
+}
+
+.step {
+    opacity: 0.5;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid lightgray;
+    box-shadow: 4px 8px 12px 2px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 300px;
+    margin: 10px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border-radius: 6px;
+    z-index: 500;
+}
+
+.step.is-active {
+    opacity: 1;
+    z-index: 500;
+}
+
+.scroll__graphic #chart {
+    position: absolute;
+    z-index: 0;
+    right: 1rem;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .step p {
+    margin: 0 auto;
+    height: auto;
+    background-color: white;
+}
+
+
+#tooltip {
+    display: none;
+    position: absolute;
+    border-width: 2px;
+    border-style: solid;
+    background-color: white;
+    box-shadow: 2px 2px 4px #000;
+    padding: 20px;
+}
+
+.references a
+{
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #10275d;
+    text-decoration: none;
+}
